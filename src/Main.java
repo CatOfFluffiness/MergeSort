@@ -75,6 +75,8 @@ public class Main {
     }
 
     private static void printArray(int[] numbers) {
-
+        for (int num: numbers){
+            System.out.println(num);
+        }
     }
 }
