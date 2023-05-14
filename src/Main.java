@@ -68,7 +68,7 @@ public class Main {
         }
 
         while (j < rightSize){                                                 //аналогично с предыдущим для правой части
-            inputArray[k] = leftHalf[j];
+            inputArray[k] = rightHalf[j];
             i++;
             k++;
         }
