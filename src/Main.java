@@ -4,10 +4,10 @@ public class Main {
     public static void main(String[] args) {
 
         Random rand = new Random();
-        int [] numbers = new int[10];
+        int [] numbers = new int[10];                                            //начальный массив, заполненный случайными числами, размером 10
 
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = rand.nextInt(100);
+            numbers[i] = rand.nextInt(100);                               //случайные элементы для заполнения массива (в данном случае числа до 100)
         }
 
         System.out.println("Before:");
