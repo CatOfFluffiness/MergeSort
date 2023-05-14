@@ -40,19 +40,37 @@ public class Main {
 
         mergeSort(leftHalf);                                                    //рекурсия - дальнейшее деление массивов по левой стороне
         mergeSort(rightHalf);                                                   //рекурсия - дальнейшее деление массивов по правой стороне
+        merge(inputArray, leftHalf, rightHalf);
     }
 
-    private static void merge (int[] inputArray, int[] leftHalf, int [] rightHalf){
+    private static void merge (int[] inputArray, int[] leftHalf, int [] rightHalf){ //метод для слияния и сортировки массивов
 
         int leftSize = leftHalf.length;
         int rightSize = rightHalf.length;
 
-        int i = 0, j = 0, k = 0;
+        int i = 0, j = 0, k = 0;                                                //i - итератор для левой половины, j - для правой, k - для слияния
 
         while (i < leftSize && j < rightSize){
-            if (leftHalf[i] <= rightHalf[i]){
-                inputArray[k] = leftHalf[i];
+            if (leftHalf[i] <= rightHalf[i]){                                   //если левая часть меньше правой, то в новом массиве
+                inputArray[k] = leftHalf[i];                                    //первое значение из левой половины с индексом i
+                i++;
             }
+            else {                                                              //или правая часть меньше левой, тогда в новом массиве
+                inputArray[k] = rightHalf[j];                                   //первое значение из правой половины с индексом j
+                j++;
+            }
+        }
+
+        while (i < leftSize){                                                  //этот элемент нужен на случай, если правая половина закончилась
+            inputArray[k] = leftHalf[i];                                       //а в левой ещё остались неотсортированные части массива
+            i++;
+            k++;
+        }
+
+        while (j < rightSize){                                                 //аналогично с предыдущим для правой части
+            inputArray[k] = leftHalf[j];
+            i++;
+            k++;
         }
     }
 
