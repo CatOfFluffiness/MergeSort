@@ -51,7 +51,7 @@ public class Main {
         int i = 0, j = 0, k = 0;                                                //i - итератор для левой половины, j - для правой, k - для слияния
 
         while (i < leftSize && j < rightSize){
-            if (leftHalf[i] <= rightHalf[i]){                                   //если левая часть меньше правой, то в новом массиве
+            if (leftHalf[i] <= rightHalf[j]){                                   //если левая часть меньше правой, то в новом массиве
                 inputArray[k] = leftHalf[i];                                    //первое значение из левой половины с индексом i
                 i++;
             }
@@ -69,7 +69,7 @@ public class Main {
 
         while (j < rightSize){                                                 //аналогично с предыдущим для правой части
             inputArray[k] = rightHalf[j];
-            i++;
+            j++;
             k++;
         }
     }
