@@ -7,7 +7,7 @@ public class Main {
         int [] numbers = new int[10];
 
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = rand.nextInt(1000000);
+            numbers[i] = rand.nextInt(100);
         }
 
         System.out.println("Before:");
@@ -51,14 +51,17 @@ public class Main {
         int i = 0, j = 0, k = 0;                                                //i - итератор для левой половины, j - для правой, k - для слияния
 
         while (i < leftSize && j < rightSize){
+
             if (leftHalf[i] <= rightHalf[j]){                                   //если левая часть меньше правой, то в новом массиве
                 inputArray[k] = leftHalf[i];                                    //первое значение из левой половины с индексом i
                 i++;
             }
+
             else {                                                              //или правая часть меньше левой, тогда в новом массиве
                 inputArray[k] = rightHalf[j];                                   //первое значение из правой половины с индексом j
                 j++;
             }
+            k++;
         }
 
         while (i < leftSize){                                                  //этот элемент нужен на случай, если правая половина закончилась
@@ -75,8 +78,8 @@ public class Main {
     }
 
     private static void printArray(int[] numbers) {
-        for (int num: numbers){
-            System.out.println(num);
+        for (int i = 0; i < numbers.length; i++){
+            System.out.println(numbers[i]);
         }
     }
 }
